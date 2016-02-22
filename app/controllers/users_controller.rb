@@ -23,7 +23,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize User
     if @user.update(user_params)
-      redirect_to users_path, success: "User updated"
+      flash[:success] = "User role changed successfully"
+      redirect_to users_path
     else
       redirect_to users_path, alert: "User update failed"
     end

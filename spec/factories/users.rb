@@ -7,4 +7,10 @@ FactoryGirl.define do
       role "admin"
     end
   end
+
+  factory :admin, class: User do
+    email "admin@example.com"
+    password "password"
+    role "admin"
+  end
 end
