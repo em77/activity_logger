@@ -1,5 +1,13 @@
-<h1>Users</h1>
-
-<% @users.each do |user| %>
-  <%= user.email %>
-<% end %>
+<div class="outer_wrapper">
+  <div class="inner_wrapper table-responsive">
+    <table class="table table-striped">
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <%= render user %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

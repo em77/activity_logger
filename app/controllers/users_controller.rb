@@ -1,18 +1,32 @@
 class UsersController < ApplicationController
-  # before_action :require_login
+  before_action :require_login, only: [:index, :show, :destroy]
+  after_action :verify_authorized
 
   def index
     @users = User.all
+    authorize User
   end
 
   def show
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def destroy
     user = User.find(params[:id])
+    authorize User
     user.destroy
     redirect_to users_path, notice: "User deleted"
+  end
+
+  def update
+    @user = User.find(params[:id])
+    authorize User
+    if @user.update(user_params)
+      redirect_to users_path, success: "User updated"
+    else
+      redirect_to users_path, alert: "User update failed"
+    end
   end
 
   def new
@@ -20,15 +34,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    # @user = User.new(user_params)
-    # if @user.save
-    #   redirect_to @user
-    #   flash.now.notice = "User created"
-    # else
-    #   redirect_to new_user_path
-    #   flash.now.alert =  "All fields must be completed and" +
-    #     " passwords must match"
-    # end
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -45,6 +50,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :password, :password_confirmation,\
+        :role)
     end
 end
