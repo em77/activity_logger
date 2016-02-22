@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, only: [:index, :show, :destroy]
-  after_action :verify_authorized
+  # after_action :verify_authorized
 
   def index
     @users = User.all
