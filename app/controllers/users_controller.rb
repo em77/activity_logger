@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:index, :show, :destroy]
+  before_action :zero_users_or_authenticated
   # after_action :verify_authorized
+
+  def zero_users_or_authenticated
+    unless User.count == 0 || current_user
+      redirect_to root_path
+      return false
+    end
+  end
 
   def index
     @users = User.all
