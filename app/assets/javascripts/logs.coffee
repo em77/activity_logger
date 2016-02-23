@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$('#date_field').datepicker
-  'setDate': new Date
-  # 'autoclose': true
+$(document).on "page:change", ->
+  $('.datepicker').datepicker format: 'mm-dd-yyyy'
+  $('#timepicker').timepicker minuteStep: 1
+  return

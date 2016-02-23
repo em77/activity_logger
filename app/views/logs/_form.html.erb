@@ -31,7 +31,8 @@
 
   <div class="field form-group">
     <%= f.label :date, "Date" %><br>
-    <%= f.text_field :date, class: "datepicker", required: true %>
+    <%= f.text_field :date, class: "datepicker",
+      value: Time.now.strftime("%m-%d-%Y"), required: true %>
   </div>
 
   <div class="field form-group">
@@ -39,9 +40,10 @@
     <%= f.number_field :duration, class: "form-control", required: true %>
   </div>
 
-  <div class="field form-group">
+  <div class="input-group bootstrap-timepicker timepicker">
     <%= f.label :start_time, "Start Time" %><br>
-    <%= f.text_field :start_time, class: "bootstrap-timepicker", required: true %>
+    <%= f.text_field :start_time, class: "form-control input-small",
+      id: "timepicker", required: true %>
   </div>
 
   <div class="field form-group">
@@ -106,9 +108,3 @@
 
   <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
 <% end %>
-
-<script>
-  $('.datepicker').datepicker({format: "mm-dd-yyyy"});
-  $('.datepicker').data({date: '2015-01-01'});
-  $('.datepicker').datepicker('update');
-</script>
