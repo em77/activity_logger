@@ -1,0 +1,114 @@
+<%= form_for(log) do |f| %>
+  <% if log.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(log.errors.count, "error") %> prohibited this log from 
+        being saved:
+      </p>
+
+      <ul>
+      <% log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :staff_last_name, "Last Name (Staff)" %><br>
+    <%= f.text_field :staff_last_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :member_first_name, "First Name (Member)" %><br>
+    <%= f.text_field :member_first_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :member_last_name, "Last Name (Member)" %><br>
+    <%= f.text_field :member_last_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :date, "Date" %><br>
+    <%= f.text_field :date, class: "datepicker", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :duration, "Duration (minutes)" %><br>
+    <%= f.number_field :duration, class: "form-control", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :start_time, "Start Time" %><br>
+    <%= f.text_field :start_time, class: "bootstrap-timepicker", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :activity_log, "Activity Log" %><br>
+    <%= f.text_area :activity_log, class: "form-control", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :follow_up, "Follow-up" %><br>
+    <%= f.text_area :follow_up, class: "form-control" %>
+  </div>
+
+  <h6>Services</h6>
+
+  <div class="field form-group">
+    <%= f.label :face_to_face, "Face-to-Face" %><br>
+    <%= f.check_box :face_to_face, checked: true , class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :education_support, "Education Support" %><br>
+    <%= f.check_box :education_support, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pre_vocational, "Pre-Vocational" %><br>
+    <%= f.check_box :pre_vocational, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :transitional_employment, "Transitional Employment" %><br>
+    <%= f.check_box :transitional_employment, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :intensive_supported_employment,
+      "Intensive Supported Employment" %><br>
+    <%= f.check_box :intensive_supported_employment, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :ongoing_supported_employment,
+      "Ongoing Supported Employment" %><br>
+    <%= f.check_box :ongoing_supported_employment, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :psychosocial_rehabilitation,
+      "Psychosocial Rehabilitation" %><br>
+    <%= f.check_box :psychosocial_rehabilitation, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :habilitation, "Habilitation" %><br>
+    <%= f.check_box :habilitation, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :family_support, "Family Support" %><br>
+    <%= f.check_box :family_support, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+<% end %>
+
+<script>
+  $('.datepicker').datepicker({format: "mm-dd-yyyy"});
+  $('.datepicker').data({date: '2015-01-01'});
+  $('.datepicker').datepicker('update');
+</script>

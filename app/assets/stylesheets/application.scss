@@ -13,5 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+  /*
+ *
+ *= require bootstrap-datepicker3
+ *= require bootstrap-timepicker
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
