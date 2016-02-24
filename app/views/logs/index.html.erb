@@ -1,0 +1,13 @@
+<div class="outer_wrapper">
+  <div class="inner_wrapper table-responsive">
+    <table class="table table-striped">
+      <tbody>
+        <% logs.each do |a_log| %>
+          <tr>
+            <%= render partial: "log_row", locals: {a_log: a_log} %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

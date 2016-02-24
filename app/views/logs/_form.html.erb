@@ -32,7 +32,7 @@
   <div class="field form-group">
     <%= f.label :date, "Date" %><br>
     <%= f.text_field :date, class: "datepicker",
-      value: Time.now.strftime("%m-%d-%Y"), required: true %>
+      value: date_field_value, required: true %>
   </div>
 
   <div class="field form-group">

@@ -3,16 +3,26 @@ class LogsController < ApplicationController
     only: [:new, :create, :edit, :destroy, :update]
   before_action :set_log, only: [:show, :edit, :update, :destroy]
   before_action :set_referer, only: [:destroy, :edit, :new]
+  after_action :verify_authorized
 
-  attr_accessor :log
-  helper_method :log
+  attr_accessor :log, :logs, :date_field_value
+  helper_method :log, :logs, :date_field_value
+
+  def index
+    @logs = Log.all
+    authorize @logs
+  end
 
   def new
     @log = Log.new
+    @date_field_value = Time.now.strftime("%m-%d-%Y")
+    authorize @log
   end
 
   def create
     @log = Log.new(log_params)
+    authorize @log
+
     if @log.valid?
       @log.save
       redirect_to(session.delete(:return_to) || root_path, notice:
@@ -21,6 +31,27 @@ class LogsController < ApplicationController
       flash[:error] = @log.errors.full_messages.to_sentence
       redirect_to(session.delete(:return_to))
     end
+  end
+
+  def edit
+    authorize @log
+    @date_field_value = @log.date
+  end
+
+  def update
+    authorize @log
+    if @log.update(log_params)
+      flash[:success] = "Log updated successfully"
+      redirect_to logs_path
+    else
+      redirect_to logs_path, alert: "Log update failed"
+    end
+  end
+
+  def destroy
+    authorize @log
+    log.destroy
+    redirect_to logs_path, notice: "Log deleted"
   end
 
   private
