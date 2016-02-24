@@ -9,8 +9,20 @@ class UserPolicy
     current_user.try(:admin?)
   end
 
+  def new?
+    create?
+  end
+
+  def create?
+    current_user.try(:admin?)
+  end
+
   def show?
     current_user.try(:admin?) || current_user == user
+  end
+
+  def edit?
+    update?
   end
 
   def update?

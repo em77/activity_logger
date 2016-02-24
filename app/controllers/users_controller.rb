@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :zero_users_or_authenticated
-  # after_action :verify_authorized
+  before_action :set_user, only: [:show, :destroy, :edit, :update]
+  after_action :verify_authorized
+
+  attr_accessor :user, :users
+  helper_method :user, :users
 
   def zero_users_or_authenticated
     unless User.count == 0 || current_user
@@ -11,26 +15,27 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    authorize User
+    authorize @users
   end
 
   def show
-    @user = User.find(params[:id])
     authorize @user
   end
 
   def destroy
-    user = User.find(params[:id])
-    authorize User
+    authorize @user
     user.destroy
     redirect_to users_path, notice: "User deleted"
   end
 
+  def edit
+    authorize @user
+  end
+
   def update
-    @user = User.find(params[:id])
-    authorize User
+    authorize @user
     if @user.update(user_params)
-      flash[:success] = "User role changed successfully"
+      flash[:success] = "User updated successfully"
       redirect_to users_path
     else
       redirect_to users_path, alert: "User update failed"
@@ -39,10 +44,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    authorize @user
   end
 
   def create
     @user = User.new(user_params)
+    authorize @user
 
     respond_to do |format|
       if @user.save
@@ -57,6 +64,10 @@ class UsersController < ApplicationController
   end
 
   private
+    def set_user
+      @user = User.find(params[:id])
+    end
+
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation,\
         :role)
