@@ -11,6 +11,7 @@ class LogsController < ApplicationController
   def index
     @logs = Log.all
     authorize @logs
+    @logs = Log.paginated(@logs, params[:page])
   end
 
   def show
