@@ -2,9 +2,10 @@
   <div class="inner_wrapper table-responsive">
     <table class="table table-striped">
       <tbody>
+        <%= render partial: "log_header" %>
         <% logs.each do |a_log| %>
           <tr>
-            <%= render partial: "log_row", locals: {a_log: a_log} %>
+            <%= render partial: "log_row", locals: {log: a_log} %>
           </tr>
         <% end %>
       </tbody>

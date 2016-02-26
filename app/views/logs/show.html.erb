@@ -1,0 +1,23 @@
+<p>Last Name (Staff): <%= log.staff_last_name %></p>
+<p>First Name (Member): <%= log.member_first_name %></p>
+<p>Last Name (Member): <%= log.member_last_name %></p>
+<p>Date: <%= log.date %></p>
+<p>Duration (minutes): <%= log.duration %></p>
+<p>Start Time: <%= log.start_time %></p>
+<p>Activity Log: <%= log.activity_log %></p>
+<p>Follow-up: <%= log.follow_up %></p>
+<br>-Services-<br>
+<p>Face-to-Face: <%= log.face_to_face %></p>
+<p>Education Support: <%= log.education_support %></p>
+<p>Pre-Vocational: <%= log.pre_vocational %></p>
+<p>Transitional Employment: <%= log.transitional_employment %></p>
+<p>Intensive Supported Employment: <%= log.intensive_supported_employment %></p>
+<p>Ongoing Supported Employment: <%= log.ongoing_supported_employment %></p>
+<p>Psychosocial Rehabilitation: <%= log.psychosocial_rehabilitation %></p>
+<p>Habilitation: <%= log.habilitation %></p>
+<p>Family Support: <%= log.family_support %></p>
+<br>
+<%= link_to "<< Back to Logs", logs_path %>
+| <%= link_to "Edit", edit_log_path(log) %>
+| <%= link_to "Delete", log, method: :delete, data: { confirm:
+  "Are you sure you want to delete this log?" } %>

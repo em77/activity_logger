@@ -30,6 +30,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-datepicker-rails'
 # Time picker in Bootstrap style
 gem 'bootstrap-timepicker-rails'
+# Pagination
+gem 'will_paginate'
+# will_paginate integration with bootstrap
+gem 'will_paginate-bootstrap'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

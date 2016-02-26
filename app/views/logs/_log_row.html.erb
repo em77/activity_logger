@@ -1,7 +1,20 @@
-<td>
-  <%= a_log.member_last_name %>
-</td>
+<tr class="table_row">  
+  <td>
+    <%= log.member_last_name %>
+  </td>
 
-<td>
-  <%= a_log.created_at %>
-</td>
+  <td>
+    <%= log.staff_last_name %>
+  </td>
+
+  <td>
+    <%= log.created_at.strftime("%m-%e-%Y %l:%M:%S %p") %>
+  </td>
+
+  <td>
+    <%= link_to "Show", log %><br>
+    <%= link_to "Edit", edit_log_path(log) %><br>
+    <%= link_to "Delete", log, method: :delete, data: { confirm:
+      "Are you sure you want to delete this log?" } %>
+  </td>
+</tr>

@@ -13,6 +13,14 @@ class LogPolicy
     current_user.try(:admin?)
   end
 
+  def new?
+    create?
+  end
+
+  def create?
+    current_user.try(:admin?) || current_user.try(:user?)
+  end
+
   def edit?
     update?
   end

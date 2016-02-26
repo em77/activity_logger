@@ -11,6 +11,6 @@ feature "Role changer", :sorcery do
       select("Admin", from: "user_role")
       click_on("Change Role")
     end
-    expect(page).to have_content "User role changed successfully"
+    expect(page).to have_content "User updated successfully"
   end
 end
