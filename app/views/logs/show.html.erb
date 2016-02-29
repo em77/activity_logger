@@ -17,6 +17,11 @@
 <p>Habilitation: <%= log.habilitation %></p>
 <p>Family Support: <%= log.family_support %></p>
 <br>
+<%= link_to "", process_log_path(log_id: log.id,
+  css_id: status_id_maker(log.id)),
+  class: "btn btn-default status_button #{status_css_maker(log)}",
+  id: status_id_maker(log.id), method: "get", remote: true %>
+<br>
 <%= link_to "<< Back to Logs", logs_path %>
 | <%= link_to "Edit", edit_log_path(log) %>
 | <%= link_to "Delete", log, method: :delete, data: { confirm:
