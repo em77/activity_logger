@@ -17,4 +17,11 @@
     <%= link_to "Delete", log, method: :delete, data: { confirm:
       "Are you sure you want to delete this log?" } %>
   </td>
+
+  <td>
+    <%= link_to "", process_log_path(log_id: log.id,
+      css_id: status_id_maker(log.id)),
+      class: "btn btn-default status_button",
+      id: status_id_maker(log.id), method: "get", remote: true %>
+  </td>
 </tr>

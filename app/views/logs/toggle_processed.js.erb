@@ -1,0 +1,9 @@
+<% if @log.processed? %>
+  $("#<%= @css_id %>").css("background-color", "#fff");
+  $("#<%= @css_id %>").removeClass("glyphicon glyphicon-ok");
+  <%  @log.not_processed! %>
+<% else %>
+  $("#<%= @css_id %>").css("background-color", "#27fb27");
+  $("#<%= @css_id %>").addClass("glyphicon glyphicon-ok");
+  <%  @log.processed! %>
+<% end %>

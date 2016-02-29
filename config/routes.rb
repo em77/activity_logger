@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :users
   resources :logs
 
+  get "/process_log" => "logs#toggle_processed", as: "process_log"
+
   get "user_sessions/new"
 
   get "user_sessions/create"

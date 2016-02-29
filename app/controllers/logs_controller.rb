@@ -11,7 +11,16 @@ class LogsController < ApplicationController
   def index
     @logs = Log.all
     authorize @logs
-    @logs = Log.paginated(@logs, params[:page])
+    @logs = @logs.paginated(params[:page])
+  end
+
+  def toggle_processed
+    @log = Log.find(params[:log_id])
+    @css_id = params[:css_id]
+    authorize Log
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show
