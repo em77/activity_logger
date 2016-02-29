@@ -19,9 +19,11 @@
   </td>
 
   <td>
+    <% status_css = log.processed? ? \
+      "glyphicon glyphicon-ok status_processed" : "status_not_processed" %>
     <%= link_to "", process_log_path(log_id: log.id,
       css_id: status_id_maker(log.id)),
-      class: "btn btn-default status_button",
+      class: "btn btn-default status_button #{status_css}",
       id: status_id_maker(log.id), method: "get", remote: true %>
   </td>
 </tr>

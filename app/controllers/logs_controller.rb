@@ -5,8 +5,8 @@ class LogsController < ApplicationController
   before_action :set_referer, only: [:destroy, :edit, :new]
   after_action :verify_authorized
 
-  attr_accessor :log, :logs, :date_field_value
-  helper_method :log, :logs, :date_field_value
+  attr_accessor :log, :logs, :date_field_value, :css_id
+  helper_method :log, :logs, :date_field_value, :css_id
 
   def index
     @logs = Log.all
