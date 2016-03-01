@@ -7,15 +7,19 @@
 <p>Activity Log: <%= log.activity_log %></p>
 <p>Follow-up: <%= log.follow_up %></p>
 <br>-Services-<br>
-<p>Face-to-Face: <%= log.face_to_face %></p>
-<p>Education Support: <%= log.education_support %></p>
-<p>Pre-Vocational: <%= log.pre_vocational %></p>
-<p>Transitional Employment: <%= log.transitional_employment %></p>
-<p>Intensive Supported Employment: <%= log.intensive_supported_employment %></p>
-<p>Ongoing Supported Employment: <%= log.ongoing_supported_employment %></p>
-<p>Psychosocial Rehabilitation: <%= log.psychosocial_rehabilitation %></p>
-<p>Habilitation: <%= log.habilitation %></p>
-<p>Family Support: <%= log.family_support %></p>
+<p>Face-to-Face: <%= checkbox_glyph_chooser(log.face_to_face) %></p>
+<p>Education Support: <%= checkbox_glyph_chooser(log.education_support) %></p>
+<p>Pre-Vocational: <%= checkbox_glyph_chooser(log.pre_vocational) %></p>
+<p>Transitional Employment:
+  <%= checkbox_glyph_chooser(log.transitional_employment) %></p>
+<p>Intensive Supported Employment:
+  <%= checkbox_glyph_chooser(log.intensive_supported_employment) %></p>
+<p>Ongoing Supported Employment:
+  <%= checkbox_glyph_chooser(log.ongoing_supported_employment) %></p>
+<p>Psychosocial Rehabilitation:
+  <%= checkbox_glyph_chooser(log.psychosocial_rehabilitation) %></p>
+<p>Habilitation: <%= checkbox_glyph_chooser(log.habilitation) %></p>
+<p>Family Support: <%= checkbox_glyph_chooser(log.family_support) %></p>
 <br>
 <%= link_to "", process_log_path(log_id: log.id,
   css_id: status_id_maker(log.id), format: :js),
