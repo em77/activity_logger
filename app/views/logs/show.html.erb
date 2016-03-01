@@ -21,10 +21,16 @@
 <p>Habilitation: <%= checkbox_glyph_chooser(log.habilitation) %></p>
 <p>Family Support: <%= checkbox_glyph_chooser(log.family_support) %></p>
 <br>
-<%= link_to "", process_log_path(log_id: log.id,
-  css_id: status_id_maker(log.id), format: :js),
-  class: "btn btn-default status_button #{status_css_maker(log)}",
-  id: status_id_maker(log.id), method: "get", remote: true %>
+<p id="status_button_text">
+  Processed?
+  <%= link_to "", process_log_path(log_id: log.id,
+    css_id: status_id_maker(log.id), format: :js),
+    class: "btn btn-default status_button #{status_css_maker(log)}",
+    id: status_id_maker(log.id), method: "get", remote: true %>
+</p>
+<br>
+<p>Submitted: <%= log.created_at.strftime("%m-%e-%Y %l:%M:%S %p") %></p>
+<p>Updated: <%= log.updated_at.strftime("%m-%e-%Y %l:%M:%S %p") %></p>
 <br>
 <%= link_to "<< Back to Logs", logs_path %>
 | <%= link_to "Edit", edit_log_path(log) %>
