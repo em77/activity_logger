@@ -20,7 +20,7 @@
 
   <td>
     <%= link_to "", process_log_path(log_id: log.id,
-      css_id: status_id_maker(log.id)),
+      css_id: status_id_maker(log.id), format: :js),
       class: "btn btn-default status_button #{status_css_maker(log)}",
       id: status_id_maker(log.id), method: "get", remote: true %>
   </td>
