@@ -11,6 +11,8 @@ class LogsController < ApplicationController
   def index
     @logs = Log.all
     authorize @logs
+    @logs = status_filter(@logs, params[:status_sort])
+    @logs = filter_handler(@logs)
     @logs = @logs.paginated(params[:page])
   end
 
@@ -66,6 +68,31 @@ class LogsController < ApplicationController
     authorize @log
     log.destroy
     redirect_to logs_path, notice: "Log deleted"
+  end
+
+  def filter_handler(logs)
+    # logs = show_open_jobs(logs) if params[:open_jobs]
+    if params[:order]
+      logs = orderer(logs, params[:order], params[:order_direction])
+    else
+      logs = orderer(logs, "created_at", "desc")
+    end
+    logs
+  end
+
+  def orderer(logs, order_by, order_direction = "asc")
+    logs.order("#{order_by} #{order_direction}")
+  end
+
+  def status_filter(logs, status = "all")
+    case status
+    when "processed"
+      logs.where("status = ?", 1)
+    when "not_processed"
+      logs.where("status = ?", 0)
+    else
+      logs
+    end
   end
 
   private

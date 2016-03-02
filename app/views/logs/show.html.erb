@@ -29,8 +29,8 @@
     id: status_id_maker(log.id), method: "get", remote: true %>
 </p>
 <br>
-<p>Submitted: <%= log.created_at.strftime("%m-%e-%Y %l:%M:%S %p") %></p>
-<p>Updated: <%= log.updated_at.strftime("%m-%e-%Y %l:%M:%S %p") %></p>
+<p>Submitted: <%= log.created_at.strftime("%m-%d-%Y %l:%M:%S %p") %></p>
+<p>Updated: <%= log.updated_at.strftime("%m-%d-%Y %l:%M:%S %p") %></p>
 <br>
 <%= link_to "<< Back to Logs", logs_path %>
 | <%= link_to "Edit", edit_log_path(log) %>
