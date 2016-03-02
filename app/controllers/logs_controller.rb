@@ -1,6 +1,5 @@
 class LogsController < ApplicationController
-  before_action :require_login,
-    only: [:new, :create, :edit, :destroy, :update]
+  before_action :require_login
   before_action :set_log, only: [:show, :edit, :update, :destroy, :show]
   before_action :set_referer, only: [:destroy, :edit, :new]
   after_action :verify_authorized
