@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    if login(params[:email], params[:password])
+    if login(params[:email], params[:password], params[:remember])
       redirect_to(root_path, notice: "Signed in successfully")
     else
       flash.now[:alert] = "Invalid email or password"
