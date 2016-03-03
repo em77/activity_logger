@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get "user_sessions/destroy"
 
+  get "/destroy_logs" => "logs#destroy_logs", as: "destroy_logs"
+
   post "users/new"
 
   get "login" => "user_sessions#new", as: :login

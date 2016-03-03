@@ -69,8 +69,15 @@ class LogsController < ApplicationController
     redirect_to logs_path, notice: "Log deleted"
   end
 
+  def destroy_logs
+    authorize Log
+    time_period = (params[:older_than].to_i).weeks.ago
+    destroy_set = Log.where("created_at < ?", time_period)
+    destroy_set.destroy_all
+    redirect_to logs_path, notice: "Logs deleted in specified time period"
+  end
+
   def filter_handler(logs)
-    # logs = show_open_jobs(logs) if params[:open_jobs]
     if params[:order]
       logs = orderer(logs, params[:order], params[:order_direction])
     else

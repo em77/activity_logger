@@ -33,6 +33,10 @@ class LogPolicy
     current_user.try(:admin?)
   end
 
+  def destroy_logs?
+    current_user.try(:admin?)
+  end
+
   def toggle_processed?
     current_user.try(:admin?)
   end
