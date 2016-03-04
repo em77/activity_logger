@@ -1,26 +1,149 @@
-<p>Last Name (Staff): <%= log.staff_last_name %></p>
-<p>First Name (Member): <%= log.member_first_name %></p>
-<p>Last Name (Member): <%= log.member_last_name %></p>
-<p>Date: <%= log.date %></p>
-<p>Duration (minutes): <%= log.duration %></p>
-<p>Start Time: <%= log.start_time %></p>
-<p>Activity Log: <%= log.activity_log %></p>
-<p>Follow-up: <%= log.follow_up %></p>
-<br>-Services-<br>
-<p>Face-to-Face: <%= checkbox_glyph_chooser(log.face_to_face) %></p>
-<p>Education Support: <%= checkbox_glyph_chooser(log.education_support) %></p>
-<p>Pre-Vocational: <%= checkbox_glyph_chooser(log.pre_vocational) %></p>
-<p>Transitional Employment:
-  <%= checkbox_glyph_chooser(log.transitional_employment) %></p>
-<p>Intensive Supported Employment:
-  <%= checkbox_glyph_chooser(log.intensive_supported_employment) %></p>
-<p>Ongoing Supported Employment:
-  <%= checkbox_glyph_chooser(log.ongoing_supported_employment) %></p>
-<p>Psychosocial Rehabilitation:
-  <%= checkbox_glyph_chooser(log.psychosocial_rehabilitation) %></p>
-<p>Habilitation: <%= checkbox_glyph_chooser(log.habilitation) %></p>
-<p>Family Support: <%= checkbox_glyph_chooser(log.family_support) %></p>
+<div class="table-responsive" id="log_show_table">
+  <table class="table table-striped">
+    <tbody>
+      <tr class="table_row">
+        <td>
+          <strong>Last Name (Staff)</strong>
+        </td>
+        <td>
+          <%= log.staff_last_name %>
+        </td>
+      </tr>
+
+      <tr class="table_row">
+        <td>
+          <strong>First Name (Member)</strong>
+        </td>
+        <td>
+          <%= log.member_first_name %>
+        </td>
+      </tr>
+
+      <tr class="table_row">
+        <td>
+          <strong>Last Name (Member)</strong>
+        </td>
+        <td>
+          <%= log.member_last_name %>
+        </td>
+      </tr>
+
+      <tr class="table_row">
+        <td>
+          <strong>Date</strong>
+        </td>
+        <td>
+          <%= log.date %>
+        </td>
+      </tr>
+
+      <tr class="table_row">
+        <td>
+          <strong>Duration (minutes)</strong>
+        </td>
+        <td>
+          <%= log.duration %>
+        </td>
+      </tr>
+
+      <tr class="table_row">
+        <td>
+          <strong>Start Time</strong>
+        </td>
+        <td>
+          <%= log.start_time %>
+        </td>
+      </tr>
+
+      <tr class="table_row">
+        <td>
+          <strong>Activity Log</strong>
+        </td>
+        <td>
+          <%= log.activity_log %>
+        </td>
+      </tr>
+
+      <tr class="table_row">
+        <td>
+          <strong>Follow-up</strong>
+        </td>
+        <td>
+          <%= log.follow_up %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Services</h2>
+
+<div class="table-responsive" id="log_show_services_table">
+  <table class="table">
+    <tbody>
+      <tr class="info table_row">
+        <td>
+          <strong>Face-to-Face</strong>
+        </td>
+
+        <td>
+          <strong>Education Support</strong>
+        </td>
+
+        <td>
+          <strong>Pre-Vocational</strong>
+        </td>
+
+        <td>
+          <strong>Transitional Employment</strong>
+        </td>
+
+        <td>
+          <strong>Intensive Supported Employment</strong>
+        </td>
+
+        <td>
+          <strong>Ongoing Supported Employment</strong>
+        </td>
+
+        <td>
+          <strong>Psychosocial Rehabilitation</strong>
+        </td>
+
+        <td>
+          <strong>Habilitation</strong>
+        </td>
+
+        <td>
+          <strong>Family Support</strong>
+        </td>
+      </tr>
+
+      <tr class="table_row">
+          <%= checkbox_glyph_chooser(log.face_to_face) %>
+
+          <%= checkbox_glyph_chooser(log.education_support) %>
+
+          <%= checkbox_glyph_chooser(log.pre_vocational) %>
+
+          <%= checkbox_glyph_chooser(log.transitional_employment) %>
+
+          <%= checkbox_glyph_chooser(log.intensive_supported_employment) %>
+
+          <%= checkbox_glyph_chooser(log.ongoing_supported_employment) %>
+
+          <%= checkbox_glyph_chooser(log.psychosocial_rehabilitation) %>
+
+          <%= checkbox_glyph_chooser(log.habilitation) %>
+
+          <%= checkbox_glyph_chooser(log.family_support) %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <br>
+
 <p id="status_button_text">
   Processed?
   <%= link_to "", process_log_path(log_id: log.id,
@@ -29,8 +152,10 @@
     id: status_id_maker(log.id), method: "get", remote: true %>
 </p>
 <br>
-<p>Submitted: <%= log.created_at.strftime("%m-%d-%Y %l:%M:%S %p") %></p>
-<p>Updated: <%= log.updated_at.strftime("%m-%d-%Y %l:%M:%S %p") %></p>
+<p><strong>Submitted:</strong>
+  <%= log.created_at.strftime("%m-%d-%Y %l:%M:%S %p") %></p>
+<p><strong>Updated:</strong>
+  <%= log.updated_at.strftime("%m-%d-%Y %l:%M:%S %p") %></p>
 <br>
 <%= link_to "<< Back to Logs", logs_path %>
 | <%= link_to "Edit", edit_log_path(log) %>

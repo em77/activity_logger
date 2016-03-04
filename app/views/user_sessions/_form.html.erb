@@ -7,12 +7,13 @@
     <%= label_tag :password %><br />
     <%= password_field_tag :password %>
   </div>
+  <br>
   <div class="field form-group">
     <%= label_tag :remember_me %><br>
     <%= check_box_tag :remember, params[:remember], true,
-      class: "form-control" %>
+      class: "form-horizontal" %>
   </div>
   <div class="actions">
-    <%= submit_tag "Sign in" %>
+    <%= submit_tag "Sign in", class: "btn btn-primary" %>
   </div>
 <% end %>

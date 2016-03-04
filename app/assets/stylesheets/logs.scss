@@ -8,11 +8,11 @@
 }
 
 .status_processed {
-  background-color: #27fb27 !important;
+  background-color: #dff0d8 !important;
 }
 
 .status_not_processed {
-  background-color: #fff !important;
+  background-color: #f2dede !important;
 }
 
 #status_button_text {
@@ -22,6 +22,11 @@
 
 #order_status_buttons_wrapper {
   float: right;
+  padding-right: 85px;
+}
+
+#order-button {
+  padding-right: 10px;
 }
 
 #delete_button_wrapper {
@@ -30,4 +35,12 @@
 
 #logs_table {
   clear: both;
+}
+
+.green {
+  background-color: #dff0d8;
+}
+
+.red {
+  background-color: #f2dede;
 }
