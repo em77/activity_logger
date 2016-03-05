@@ -1,3 +1,5 @@
+<% provide(:title, "View Log") %>
+
 <% logs_query = Log.order_home_at(Log.find(params[:id])) %>
 
 <% unless logs_query.count < 2 %>
