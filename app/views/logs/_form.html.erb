@@ -1,4 +1,4 @@
-<%= form_for(log) do |f| %>
+<%= bootstrap_form_for(log, layout: :horizontal) do |f| %>
   <% if log.errors.any? %>
     <div id="error_explanation">
       <p>
@@ -14,97 +14,50 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= f.label :staff_last_name, "Last Name (Staff)" %><br>
-    <%= f.text_field :staff_last_name, class: "form-control", required: true %>
-  </div>
+  <%= f.text_field :staff_last_name, label: "Last Name (Staff)",
+    required: true %>
 
-  <div class="field form-group">
-    <%= f.label :member_first_name, "First Name (Member)" %><br>
-    <%= f.text_field :member_first_name, class: "form-control", required: true %>
-  </div>
+  <%= f.text_field :member_first_name, label: "First Name (Member)",
+    required: true %>
 
-  <div class="field form-group">
-    <%= f.label :member_last_name, "Last Name (Member)" %><br>
-    <%= f.text_field :member_last_name, class: "form-control", required: true %>
-  </div>
+  <%= f.text_field :member_last_name, label: "Last Name (Member)",
+    required: true %>
 
-  <div class="field form-group">
-    <%= f.label :date, "Date" %><br>
-    <%= f.text_field :date, class: "datepicker",
-      value: date_field_value, required: true %>
-  </div>
+  <%= f.text_field :date, class: "datepicker", value: date_field_value,
+    required: true %>
 
-  <div class="field form-group">
-    <%= f.label :duration, "Duration (minutes)" %><br>
-    <%= f.number_field :duration, class: "form-control", required: true %>
-  </div>
+  <%= f.number_field :duration, label: "Duration (minutes)", required: true %>
 
-  <div class="input-group bootstrap-timepicker timepicker">
-    <%= f.label :start_time, "Start Time" %><br>
-    <%= f.text_field :start_time, class: "form-control input-small",
-      id: "timepicker", required: true %>
-  </div>
+  <%= f.time_picker :start_time, label: "Start Time", widget: {minute_step: 1,
+    default_time: "current", show_meridian: true, show_seconds: false},
+    id: "timepicker", required: true %>
 
-  <div class="field form-group">
-    <%= f.label :activity_log, "Activity Log" %><br>
-    <%= f.text_area :activity_log, class: "form-control", required: true %>
-  </div>
+  <%= f.text_area :activity_log, label: "Activity Log", required: true %>
 
-  <div class="field form-group">
-    <%= f.label :follow_up, "Follow-up" %><br>
-    <%= f.text_area :follow_up, class: "form-control" %>
-  </div>
+  <%= f.text_area :follow_up, label: "Follow-up" %>
 
-  <h6>Services</h6>
+  <h3>Services</h3>
 
-  <div class="field form-group">
-    <%= f.label :face_to_face, "Face-to-Face" %><br>
-    <%= f.check_box :face_to_face, checked: true , class: "form-control" %>
-  </div>
+  <%= f.form_group do %>
+    <%= f.check_box :face_to_face, label: "Face-to-Face", checked: true %>
+    <%= f.check_box :education_support, label: "Education Support" %>
+    <%= f.check_box :pre_vocational, label: "Pre-Vocational" %>
+    <%= f.check_box :transitional_employment,
+      label: "Transitional Employment" %>
+    <%= f.check_box :intensive_supported_employment,
+      label: "Intensive Supported Employment" %>
+    <%= f.check_box :ongoing_supported_employment,
+      label: "Ongoing Supported Employment" %>
+    <%= f.check_box :psychosocial_rehabilitation,
+      label: "Psychosocial Rehabilitation" %>
+    <%= f.check_box :habilitation %>
+    <%= f.check_box :family_support, label: "Family Support" %>
+  <% end %>
 
-  <div class="field form-group">
-    <%= f.label :education_support, "Education Support" %><br>
-    <%= f.check_box :education_support, class: "form-control" %>
-  </div>
+  <br>
 
-  <div class="field form-group">
-    <%= f.label :pre_vocational, "Pre-Vocational" %><br>
-    <%= f.check_box :pre_vocational, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :transitional_employment, "Transitional Employment" %><br>
-    <%= f.check_box :transitional_employment, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :intensive_supported_employment,
-      "Intensive Supported Employment" %><br>
-    <%= f.check_box :intensive_supported_employment, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :ongoing_supported_employment,
-      "Ongoing Supported Employment" %><br>
-    <%= f.check_box :ongoing_supported_employment, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :psychosocial_rehabilitation,
-      "Psychosocial Rehabilitation" %><br>
-    <%= f.check_box :psychosocial_rehabilitation, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :habilitation, "Habilitation" %><br>
-    <%= f.check_box :habilitation, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :family_support, "Family Support" %><br>
-    <%= f.check_box :family_support, class: "form-control" %>
-  </div>
-
-  <%= f.submit "Submit", class: "btn btn-default btn-primary", id: "submit_log" %>
+  <%= f.form_group do %>
+    <%= f.submit "Submit", class: "btn btn-default btn-primary",
+      id: "submit_log" %>
+  <% end %>
 <% end %>

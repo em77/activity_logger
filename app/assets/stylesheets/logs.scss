@@ -37,10 +37,17 @@
   clear: both;
 }
 
-.green {
-  background-color: #dff0d8;
+#previous_button {
+  float: left;
+  padding-left: 10%;
 }
 
-.red {
-  background-color: #f2dede;
+#next_button {
+  float: right;
+  padding-right: 10%;
+}
+
+#log_show_table {
+  clear: both;
+  padding-top: 20px;
 }

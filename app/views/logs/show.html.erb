@@ -1,3 +1,23 @@
+<% logs_query = Log.order_home_at(Log.find(params[:id])) %>
+
+<% unless logs_query.count < 2 %>
+  <div id="next_previous_buttons">
+    <div id="previous_button">
+      <%= link_to log_path(logs_query.previous[:id]),
+        class: "btn btn-primary" do %>
+        <span class="glyphicon glyphicon-arrow-left"></span> Previous
+      <% end %>
+    </div>
+
+    <div id="next_button">
+      <%= link_to log_path(logs_query.next[:id]),
+        class: "btn btn-primary" do %>
+        Next <span class="glyphicon glyphicon-arrow-right"></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
 <div class="table-responsive" id="log_show_table">
   <table class="table table-striped">
     <tbody>

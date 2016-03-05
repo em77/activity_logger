@@ -4,5 +4,4 @@
 
 $(document).on "page:change", ->
   $('.datepicker').datepicker format: 'mm-dd-yyyy'
-  $('#timepicker').timepicker minuteStep: 1
   return

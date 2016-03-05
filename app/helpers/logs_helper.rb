@@ -13,10 +13,10 @@ module LogsHelper
 
   def checkbox_glyph_chooser(checkbox_value)
     if checkbox_value == 0
-      '<td class="service_table_check_row red">
+      '<td class="service_table_check_row danger">
         <span class="glyphicon glyphicon-remove"></span></td>'.html_safe
     else
-      '<td class="service_table_check_row green">
+      '<td class="service_table_check_row success">
         <span class="glyphicon glyphicon-ok"></span></td>'.html_safe
     end
   end

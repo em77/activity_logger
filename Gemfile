@@ -3,9 +3,12 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.5.2'
 
 gem 'bootstrap-sass'
+
+gem 'bootstrap_form'
+gem 'bootstrap_form_extensions'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
@@ -29,11 +32,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Date picker in Bootstrap style
 gem 'bootstrap-datepicker-rails'
 # Time picker in Bootstrap style
-gem 'bootstrap-timepicker-rails'
+gem 'bootstrap-timepicker-rails', require: 'bootstrap-timepicker-rails',
+  git: 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
 # Pagination
 gem 'will_paginate'
 # will_paginate integration with bootstrap
 gem 'will_paginate-bootstrap'
+# For next/previous record
+gem 'order_query'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
