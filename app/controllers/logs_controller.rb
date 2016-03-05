@@ -40,8 +40,7 @@ class LogsController < ApplicationController
 
     if @log.valid?
       @log.save
-      redirect_to(session.delete(:return_to) || root_path, notice:
-        "Log submitted successfully")
+      redirect_to(new_log_path, notice: "Log submitted successfully")
     else
       flash[:error] = @log.errors.full_messages.to_sentence
       redirect_to(session.delete(:return_to))
