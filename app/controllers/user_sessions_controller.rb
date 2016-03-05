@@ -1,5 +1,4 @@
 class UserSessionsController < ApplicationController
-  # before_action :set_referer, only: [:new]
 
   def new
     @user = User.new

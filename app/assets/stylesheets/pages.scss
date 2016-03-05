@@ -1,0 +1,31 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home_body {
+  background: url("https://i.imgur.com/ISmLpUi.jpg");
+  background-position: center;
+}
+
+.jumbotron {
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.jumbotron > h1 {
+  margin-left: 30px;
+}
+
+.jumbotron > p {
+  margin-left: 30px;
+}
+
+.jumbotron > .btn {
+  margin-left: 30px;
+}
+
+.orange {
+  background-color: #FA0293;
+  color: white;
+}

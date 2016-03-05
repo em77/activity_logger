@@ -1,0 +1,20 @@
+<body id="home_body">
+  <% provide(:title, "Home") %>
+
+  <div id="jumbo_wrapper">
+    <% if logged_in? %>
+      <div class="jumbotron">
+        <h1>Welcome to the Activity Logger</h1>
+        <br>
+        <%= link_to "New Log", new_log_path, class: "btn orange btn-lg" %>
+      </div>
+    <% else %>
+      <div class="jumbotron">
+        <h1>Welcome to the Activity Logger</h1>
+        <p>Please sign in to continue.</p>
+        <br>
+        <%= link_to "Sign in", login_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</body>

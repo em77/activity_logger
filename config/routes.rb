@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :user_sessions
   resources :users
   resources :logs
+  resources :pages
 
   get "/process_log" => "logs#toggle_processed", as: "process_log"
 
@@ -18,5 +19,5 @@ Rails.application.routes.draw do
   get "login" => "user_sessions#new", as: :login
   get "logout" => "user_sessions#destroy", as: :logout
 
-  root to: "user_sessions#new"
+  root to: "pages#index"
 end
