@@ -1,0 +1,77 @@
+<% provide(:title, "Guide") %>
+
+<div id="guide_wrapper">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3>User Management</h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        There are two types of accounts, "User" accounts and "Admin" accounts. A
+        "User" account is only able to submit new logs using the New Log form
+        and cannot access any other part of the site. An "Admin" account can
+        access and use all parts of the site, including the User Management
+        section and its functions.
+
+        In User Management, you can view a list of the current accounts which
+        exist on the site, and can change the role of each account by selecting
+        "User" or "Admin" in the dropdown menu next to each account name and
+        clicking "Change Role." To create a new account, you can click "New
+        User." To edit an existing account's name or password, you can click
+        "Edit User" next to the corresponding account. To delete an existing
+        account, you can click "Delete User" next to the corresponding account.
+      </p>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3>View Logs</h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        <p>
+          On this part of the site, you can view a listing of all of the logs
+          that have been submitted. Next to each log in the list, you can click
+          "Show" to view the full log, "Edit" to edit the contents of the log,
+          or "Delete" to delete the log from the site. These options are also
+          available at the bottom of the page once you are on the "Show" page
+          viewing an individual log. Next to each log in the list is a checkbox
+          under the "Processed?" column. This is to keep track of which logs
+          have been read and processed already and which have not. You can check
+          and uncheck the boxes and the log is marked or unmarked as processed
+          in the database immediately.
+
+          To assist in filtering logs by their status of processed or not
+          processed, you can click the "Status" dropdown button at the top of
+          the page on the right-hand side and choose to view logs that are
+          Processed, Not Processed, or to return to displaying "All" the logs.
+          Additionally, on the "Order By" button, you can order the logs by
+          several categories. By default, the logs are ordered by when they were
+          submitted, with the newest at the top.
+
+          The "Delete Logs" button on the left-hand side allows you to mass
+          delete all logs that are older than one week, one month, six months,
+          or one year. Be careful, as deletion is permanent, but when clicking
+          on any of the "Delete Logs" options, you will be asked for
+          confirmation in a pop-up message and are still able to cancel the
+          action on this message.
+
+          On an individual log's "Show" page, you can view the full contents of
+          the log and also at the bottom have the same edit/delete/status
+          options as you did in the View Logs section. The "Date" and "Start
+          Time" attributes in each log are the dates and times that were inputed
+          by the staff person who completed the log as to when the activity
+          being logged occurred. This is different from the "Submitted" and
+          "Updated" information at the bottom of the page. These are automatic
+          timestamps put on the log by the system, "Submitted" being exactly
+          when the log was submitted to the site and "Updated" being exactly
+          when the last change occurred to the log, either by editing the
+          contents of it or it being processed. At the top of the page, you can
+          cycle between different logs with the "Next" and "Previous" buttons
+          without having to return to the View Logs section each time.
+        </p>
+      </p>
+    </div>
+  </div>
+</div>

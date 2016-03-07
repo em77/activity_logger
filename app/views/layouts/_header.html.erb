@@ -24,13 +24,15 @@
           </li>
 
           <li>
-            <%= link_to "New Log", new_log_path,
-              class: "navbar_link" %>
+            <%= link_to "Guide", pages_guide_path, class: "navbar_link" %>
+          </li>
+
+          <li>
+            <%= link_to "New Log", new_log_path, class: "navbar_link" %>
           </li>
         <% elsif policy(Log).create? %>
           <li>
-            <%= link_to "New Log", new_log_path,
-              class: "navbar_link" %>
+            <%= link_to "New Log", new_log_path, class: "navbar_link" %>
           </li>
         <% end %>
       </ul>
