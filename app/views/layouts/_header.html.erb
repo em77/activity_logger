@@ -41,7 +41,7 @@
         <% if policy(Log).create? %>
           <li>
             <p class="navbar-text">
-              Signed in as <%= current_user.email %>
+              Signed in as <%= current_user.last_name || current_user.email %>
             </p>
           </li>
 
