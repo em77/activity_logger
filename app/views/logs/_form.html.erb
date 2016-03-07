@@ -36,22 +36,24 @@
 
   <%= f.text_area :follow_up, label: "Follow-up" %>
 
-  <h3>Services</h3>
+  <h3 id="services_heading">Services</h3>
 
   <%= f.form_group do %>
-    <%= f.check_box :face_to_face, label: "Face-to-Face", checked: true %>
-    <%= f.check_box :education_support, label: "Education Support" %>
-    <%= f.check_box :pre_vocational, label: "Pre-Vocational" %>
+    <%= f.check_box :face_to_face, label: "Face-to-Face", checked: true,
+      inline: true %>
+    <%= f.check_box :education_support, label: "Education Support",
+      inline: true %>
+    <%= f.check_box :pre_vocational, label: "Pre-Vocational", inline: true %>
     <%= f.check_box :transitional_employment,
-      label: "Transitional Employment" %>
+      label: "Transitional Employment", inline: true %>
     <%= f.check_box :intensive_supported_employment,
-      label: "Intensive Supported Employment" %>
+      label: "Intensive Supported Employment", inline: true %>
     <%= f.check_box :ongoing_supported_employment,
-      label: "Ongoing Supported Employment" %>
+      label: "Ongoing Supported Employment", inline: true %>
     <%= f.check_box :psychosocial_rehabilitation,
-      label: "Psychosocial Rehabilitation" %>
-    <%= f.check_box :habilitation %>
-    <%= f.check_box :family_support, label: "Family Support" %>
+      label: "Psychosocial Rehabilitation", inline: true %>
+    <%= f.check_box :habilitation, inline: true %>
+    <%= f.check_box :family_support, label: "Family Support", inline: true %>
   <% end %>
 
   <br>
