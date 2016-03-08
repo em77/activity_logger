@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  get 'password_resets/create'
+
+  get 'password_resets/edit'
+
+  get 'password_resets/update'
+
   resources :user_sessions
   resources :users
   resources :logs
+  resources :password_resets
 
   get "/process_log" => "logs#toggle_processed", as: "process_log"
 
