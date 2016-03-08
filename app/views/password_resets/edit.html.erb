@@ -1,6 +1,6 @@
 <% provide(:title, "Choose a New Password") %>
 
-<h1>Choose a New Password</h1>
+<h2>Choose a New Password</h2>
 <%= bootstrap_form_for user, url: password_reset_path(token),
   html: {method: :post} do |f| %>
   <% if user.errors.any? %>
@@ -18,15 +18,12 @@
     </div>
   <% end %>
 
-  <%= f.label :email %><br>
   <%= user.email %>
 
-  <%= f.label :password %><br>
   <%= f.password_field :password %>
 
-  <%= f.label :password_confirmation %><br>
   <%= f.password_field :password_confirmation %>
 
-  <%= f.submit %>
+  <%= f.submit, class: "btn btn-primary" %>
 
 <% end %>

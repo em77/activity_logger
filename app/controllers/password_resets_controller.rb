@@ -11,7 +11,8 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by_email(params[:email])
     @user.deliver_reset_password_instructions! if @user
     redirect_to(login_path, notice: "Password reset instructions have been" +
-      " sent to the e-mail you provided. Please check your e-mail.")
+      " sent to the e-mail you provided. Please check your spam folder if" +
+      " you don't see the e-mail.")
   end
 
   def edit
