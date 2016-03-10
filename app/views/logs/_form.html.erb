@@ -28,7 +28,7 @@
 
   <%= f.number_field :duration, label: "Duration (minutes)", required: true %>
 
-  <%= f.time_picker :start_time, label: "Start Time", widget: {minute_step: 1,
+  <%= f.time_picker :end_time, label: "End Time", widget: {minute_step: 1,
     default_time: "current", show_meridian: true, show_seconds: false},
     id: "timepicker", required: true %>
 

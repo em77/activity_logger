@@ -11,7 +11,7 @@ feature "Log submit", :sorcery do
     fill_in "Last Name (Member)", with: log.member_last_name
     fill_in "Date", with: log.date
     fill_in "Duration (minutes)", with: log.duration
-    fill_in "timepicker", with: log.start_time
+    fill_in "timepicker", with: log.end_time
     fill_in "Date", with: log.date
     fill_in "Activity Log", with: log.activity_log
     fill_in "Follow-up", with: log.follow_up

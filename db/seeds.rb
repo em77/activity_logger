@@ -14,7 +14,7 @@ Log.destroy_all
   log.member_last_name = Faker::Name.last_name
   log.member_first_name = Faker::Name.first_name
   log.duration = rand(1..120)
-  log.start_time = Faker::Time.between(60.days.ago, Time.now).strftime("%I:%M %p")
+  log.end_time = Faker::Time.between(60.days.ago, Time.now).strftime("%I:%M %p")
   log.education_support = [0, 1].sample
   log.pre_vocational = [0, 1].sample
   log.transitional_employment = [0, 1].sample

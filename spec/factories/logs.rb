@@ -4,7 +4,7 @@ FactoryGirl.define do
     member_last_name "Washington"
     member_first_name "George"
     duration 60
-    start_time "04:12 PM"
+    end_time "04:12 PM"
     education_support 1
     pre_vocational 0
     transitional_employment 0
