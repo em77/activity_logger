@@ -1,26 +1,29 @@
-<td>
+<div class="css_cell">
   <%= link_to user.email, user %>
-</td>
-<td>
+</div>
+<div class="css_cell">
+  <%= user.last_name %>
+</div>
+<div class="css_cell">
   <%= form_for(user) do |f| %>
-    <div class="form-group">
+    <div class="form-group css_cell">
       <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}, {},
         class: "form-control") %>
     </div>
-    <td>
+    <div class="css_cell">
       <%= f.submit "Change Role", class: "btn btn-default btn-primary" %>
-    </td>
+    </div>
   <% end %>
-</td>
-<td>
+</div>
+<div class="css_cell">
   <div class="btn-group">
     <%= link_to("Edit User", edit_user_path(user), class: "btn btn-info") %>
   </div>
-</td>
-<td>
+</div>
+<div class="css_cell">
   <div class="btn-group">
     <%= link_to("Delete User", user_path(user),
       data: { :confirm => "Are you sure you want to delete this user?" },
       method: :delete, class: "btn btn-danger") unless user == current_user %>
   </div>
-</td>
+</div>

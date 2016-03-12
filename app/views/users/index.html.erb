@@ -5,15 +5,14 @@
     <%= link_to "New User", new_user_path, class: "btn btn-success",
       id: "new_user_button", method: :get %>
   </div>
-  <div class="inner_wrapper table-responsive">
-    <table class="table table-striped">
-      <tbody>
+    <div class="css_table">
+      <div class="css_tbody">
         <% users.each do |user| %>
-          <tr>
+          <div class="css_row">
             <%= render user %>
-          </tr>
+          </div>
+          <hr>
         <% end %>
-      </tbody>
-    </table>
-  </div>
+      </div>
+    </div>
 </div>
