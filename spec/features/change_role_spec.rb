@@ -7,7 +7,7 @@ feature "Role changer", :sorcery do
     admin = create(:admin)
     signin(admin.email, "password")
     visit users_path
-    within("tr", text: user.email) do
+    within(".css_row", text: user.email) do
       select("Admin", from: "user_role")
       click_on("Change Role")
     end
