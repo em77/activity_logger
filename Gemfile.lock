@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/tispratik/bootstrap-timepicker-rails.git
+  remote: https://github.com/tispratik/bootstrap-timepicker-rails.git
   revision: eb489926214bc2ffb9f61ac0638d758e7a950826
   specs:
     bootstrap-timepicker-rails (0.1.3)
