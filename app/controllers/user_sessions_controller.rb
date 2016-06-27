@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
     if login(params[:email], params[:password], params[:remember])
       redirect_to(root_path, notice: "Signed in successfully")
     else
-      flash.now[:alert] = "Invalid email or password"
+      flash.now[:error] = "Invalid email or password"
       render action: "new"
     end
   end
