@@ -58,7 +58,7 @@ class LogsController < ApplicationController
       flash[:success] = "Log updated successfully"
       redirect_to logs_path
     else
-      redirect_to logs_path, alert: "Log update failed"
+      redirect_to logs_path, error: "Log update failed"
     end
   end
 

@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       flash[:success] = "User updated successfully"
       redirect_to users_path
     else
-      redirect_to users_path, alert: "User update failed"
+      redirect_to users_path, error: "User update failed"
     end
   end
 
