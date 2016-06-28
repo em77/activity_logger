@@ -1,9 +1,9 @@
 <% if log.processed? %>
   $("#<%= css_id %>").addClass("status_not_processed");
   $("#<%= css_id %>").removeClass("glyphicon glyphicon-ok status_processed");
-  <%  log.not_processed! %>
+  <% log.not_processed! %>
 <% else %>
   $("#<%= css_id %>").removeClass("status_not_processed");
   $("#<%= css_id %>").addClass("glyphicon glyphicon-ok status_processed");
-  <%  log.processed! %>
+  <% log.processed! %>
 <% end %>
