@@ -4,7 +4,6 @@ class Log < ActiveRecord::Base
   order_query :order_home,
     [:created_at, :desc]
 
-  def self.paginated(page_params, num_per_page = 25)
-    self.paginate(page: page_params, per_page: num_per_page)
-  end
+  # Default number of logs per page with will_paginate
+  self.per_page = 25
 end

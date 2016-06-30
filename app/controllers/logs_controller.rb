@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
   before_action :require_login
-  before_action :set_log, only: [:show, :edit, :update, :destroy, :show]
+  before_action :set_log, only: [:show, :edit, :update, :destroy]
   before_action :set_referer, only: [:destroy, :edit, :new]
   after_action :verify_authorized
 
@@ -10,14 +10,14 @@ class LogsController < ApplicationController
   def index
     @logs = Log.all
     authorize @logs
-    @logs = status_filter(@logs, params[:status_sort])
+    @logs = @logs.send(params[:status_sort].to_sym) if params[:status_sort]
     @logs = filter_handler(@logs)
-    @logs = @logs.paginated(params[:page])
+    @logs = @logs.paginate(page: params[:page])
   end
 
   def toggle_processed
-    @log = Log.find(params[:log_id])
-    @css_id = params[:css_id]
+    @log = Log.find(params.require(:log_id))
+    @css_id = params.require(:css_id)
     authorize Log
     respond_to do |format|
       format.js
@@ -70,7 +70,7 @@ class LogsController < ApplicationController
 
   def destroy_logs
     authorize Log
-    time_period = (params[:older_than].to_i).weeks.ago
+    time_period = (params.require(:older_than).to_i).weeks.ago
     destroy_set = Log.where("created_at < ?", time_period)
     destroy_set.destroy_all
     redirect_to logs_path, notice: "Logs deleted in specified time period"
@@ -89,20 +89,9 @@ class LogsController < ApplicationController
     logs.order("#{order_by} #{order_direction}")
   end
 
-  def status_filter(logs, status = "all")
-    case status
-    when "processed"
-      logs.where("status = ?", 1)
-    when "not_processed"
-      logs.where("status = ?", 0)
-    else
-      logs
-    end
-  end
-
   private
     def set_log
-      @log = Log.find(params[:id])
+      @log = Log.find(params.require(:id))
     end
 
     def log_params
