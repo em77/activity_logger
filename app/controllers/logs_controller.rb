@@ -33,11 +33,12 @@ class LogsController < ApplicationController
     result = Log.search(params[:search])
 
     if result.empty?
-      flash.now[:error] = "No logs found with that search - Displaying all" +
-        " logs"
+      flash.now[:error] = "No search result(s) for \"#{params[:search]}\"" +
+        " - Displaying all logs"
       Log.all
     else
-      flash.now[:success] = "Search results for \"#{params[:search]}\""
+      flash.now[:success] = "#{result.count} search result(s) for" +
+        " \"#{params[:search]}\""
       result
     end
   end
