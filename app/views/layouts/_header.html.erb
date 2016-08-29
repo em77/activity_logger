@@ -30,6 +30,16 @@
           <li>
             <%= link_to "New Log", new_log_path, class: "navbar_link" %>
           </li>
+
+          <li>
+            <%= form_tag logs_path, id: "search_bar", method: :get,
+              class: "navbar-form navbar-left" do %>
+              <%= text_field_tag :search, params[:search],
+                placeholder: "Search logs by name", size: 25,
+                class: "form-control" %>
+              <%= submit_tag "Search", class: "btn btn-default" %>
+            <% end %>
+          </li>
         <% elsif policy(Log).create? %>
           <li>
             <%= link_to "New Log", new_log_path, class: "navbar_link" %>

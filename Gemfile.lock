@@ -128,6 +128,10 @@ GEM
       activerecord (>= 4.0, < 6.0)
       activesupport (>= 4.0, < 6.0)
     pg (0.18.4)
+    pg_search (1.0.6)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     pkg-config (1.1.7)
     puma (3.6.0)
     pundit (1.1.0)
@@ -250,6 +254,7 @@ DEPENDENCIES
   jquery-rails
   order_query
   pg (~> 0.15)
+  pg_search
   puma
   pundit
   rack-timeout

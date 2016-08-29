@@ -8,7 +8,7 @@ class LogsController < ApplicationController
   helper_method :log, :logs, :date_field_value, :css_id
 
   def index
-    @logs = Log.all
+    @logs = search_handler
     authorize @logs
     @logs = @logs.send(params[:status_sort].to_sym) if params[:status_sort]
     @logs = filter_handler(@logs)
@@ -21,6 +21,24 @@ class LogsController < ApplicationController
     authorize Log
     respond_to do |format|
       format.js
+    end
+  end
+
+  def search_handler
+    if params[:search].nil? || params[:search].empty?
+      flash.now[:success] = "Displaying all logs"
+      return Log.all
+    end
+
+    result = Log.search(params[:search])
+
+    if result.empty?
+      flash.now[:error] = "No logs found with that search - Displaying all" +
+        " logs"
+      Log.all
+    else
+      flash.now[:success] = "Search results for \"#{params[:search]}\""
+      result
     end
   end
 
@@ -78,15 +96,14 @@ class LogsController < ApplicationController
 
   def filter_handler(logs)
     if params[:order]
-      logs = orderer(logs, params[:order], params[:order_direction])
+      orderer(logs, params[:order], params[:order_direction])
     else
-      logs = orderer(logs, "created_at", "desc")
+      orderer(logs, "created_at", "desc")
     end
-    logs
   end
 
   def orderer(logs, order_by, order_direction = "asc")
-    logs.order("#{order_by} #{order_direction}")
+    logs.reorder("#{order_by} #{order_direction}")
   end
 
   private
