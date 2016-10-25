@@ -1,4 +1,4 @@
-$(document).on "page:change", ->
+$(document).on "turbolinks:load", ->
 
   # Required field checker for Safari
   $("form").submit (e) ->
