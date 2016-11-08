@@ -56,6 +56,9 @@ gem 'sorcery'
 # For authorization
 gem 'pundit'
 
+# Backup database to S3 bucket
+gem 'pgbackups-archive'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
