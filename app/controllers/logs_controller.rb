@@ -55,6 +55,7 @@ class LogsController < ApplicationController
 
   def create
     @log = Log.new(log_params)
+    @log.date = Date.strptime(log_params[:date], '%m-%d-%Y')
     authorize @log
 
     if @log.valid?
