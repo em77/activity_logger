@@ -16,5 +16,6 @@ FactoryGirl.define do
     face_to_face 1
     activity_log "Provided job consultation."
     follow_up "Will ask next time how job search is going."
+    date Date.today
   end
 end

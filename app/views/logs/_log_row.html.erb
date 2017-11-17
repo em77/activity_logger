@@ -16,10 +16,22 @@
   </td>
 
   <td>
+    <%= log.date.strftime('%m-%d-%Y') %>
+  </td>
+
+  <td>
     <%= link_to "Show", log %><br>
     <%= link_to "Edit", edit_log_path(log) %><br>
     <%= link_to "Delete", log, method: :delete, data: { confirm:
       "Are you sure you want to delete this log?" } %>
+  </td>
+
+  <td>
+    <% if log.nbs? %>
+      <span class="glyphicon glyphicon-ok"></span></td>
+    <% else %>
+      <span class="glyphicon glyphicon-remove"></span></td>
+    <% end %>
   </td>
 
   <td>

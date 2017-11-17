@@ -59,6 +59,12 @@
   <br>
 
   <%= f.form_group do %>
+    <%= f.check_box :nbs, label: "No Billable Service (NBS)?", inline: true %>
+  <% end %>
+
+  <br>
+
+  <%= f.form_group do %>
     <%= f.submit "Submit", class: "btn btn-default btn-primary",
       id: "submit_log" %>
   <% end %>

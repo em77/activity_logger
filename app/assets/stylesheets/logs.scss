@@ -18,6 +18,7 @@
 #status_button_text {
   font-size: 16pt;
   font-weight: bold;
+  clear: both;
 }
 
 #order_status_buttons_wrapper {
@@ -54,4 +55,20 @@
 
 #services_heading {
   padding-left: 7%;
+}
+
+#log_show_nbs {
+  width: 260px;
+  overflow: auto;
+}
+
+#nbs_header {
+  float: left;
+  padding: 5px;
+  background-color: #f2dede;
+}
+
+#nbs_value {
+  float: right;
+  padding-top: 13px;
 }

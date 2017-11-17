@@ -101,6 +101,24 @@
                   aria-hidden="true"></span>
             <% end %>
           </li>
+
+          <li>
+            <%= link_to url_for(params.merge({ order: :date,
+              order_direction: "asc", status_sort: params[:status_sort] })),
+              method: :get do %>
+                Date of Service <span class="glyphicon glyphicon-triangle-top"
+                  aria-hidden="true"></span>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to url_for(params.merge({ order: :date,
+              order_direction: "desc", status_sort: params[:status_sort] })),
+              method: :get do %>
+                Date of Service <span class="glyphicon glyphicon-triangle-bottom"
+                  aria-hidden="true"></span>
+            <% end %>
+          </li>
         </ul>
       </div>
 

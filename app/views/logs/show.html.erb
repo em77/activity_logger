@@ -55,7 +55,7 @@
           <strong>Date</strong>
         </td>
         <td>
-          <%= log.date %>
+          <%= log.date.strftime('%m-%d-%Y') %>
         </td>
       </tr>
 
@@ -162,6 +162,22 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<br>
+
+<div id="log_show_nbs">
+  <h4 id="nbs_header">
+    No Billable Service (NBS)?
+  </h4>
+
+  <div id="nbs_value">
+    <% if log.nbs? %>
+      <span class="glyphicon glyphicon-ok"></span></td>
+    <% else %>
+      <span class="glyphicon glyphicon-remove"></span></td>
+    <% end %>
+  </div>
 </div>
 
 <br>

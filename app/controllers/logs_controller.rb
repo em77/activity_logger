@@ -119,6 +119,6 @@ class LogsController < ApplicationController
         :pre_vocational, :transitional_employment,
         :intensive_supported_employment, :ongoing_supported_employment,
         :psychosocial_rehabilitation, :habilitation, :family_support,
-        :face_to_face, :activity_log, :follow_up, :date)
+        :face_to_face, :activity_log, :follow_up, :date, :nbs)
     end
 end
