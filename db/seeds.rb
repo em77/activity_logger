@@ -26,6 +26,6 @@ Log.destroy_all
   log.face_to_face = [0, 1].sample
   log.activity_log = Faker::Lorem.sentence
   log.follow_up = Faker::Lorem.sentence
-  log.date = Faker::Date.between(2.days.ago, Date.today)
+  log.date = Faker::Date.between(3.days.ago, Date.today)
   log.save!
 end
