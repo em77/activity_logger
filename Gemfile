@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7.1'
+gem 'rails', '4.2.10'
 
 gem 'bootstrap-sass'
 
@@ -11,7 +11,7 @@ gem 'bootstrap_form'
 gem 'bootstrap_form_extensions'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.15'
+gem 'pg', '~> 0.21'
 # For searching
 gem 'pg_search'
 # Use SCSS for stylesheets

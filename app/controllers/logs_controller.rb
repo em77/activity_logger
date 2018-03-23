@@ -49,7 +49,7 @@ class LogsController < ApplicationController
 
   def new
     @log = Log.new
-    @date_field_value = Time.now.strftime("%m-%d-%Y")
+    @date_field_value = Time.zone.now.strftime("%m-%d-%Y")
     authorize @log
   end
 
