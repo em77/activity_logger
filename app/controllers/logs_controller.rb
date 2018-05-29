@@ -69,7 +69,7 @@ class LogsController < ApplicationController
 
   def edit
     authorize @log
-    @date_field_value = @log.date
+    @date_field_value = @log.date.strftime("%m-%d-%Y")
   end
 
   def update
