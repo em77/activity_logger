@@ -5,6 +5,8 @@ class Log < ActiveRecord::Base
   order_query :order_home,
     [:created_at, :desc]
 
+  validates :date, presence: { message: "- Please select Date from the calendar helper -" }
+
   # Default number of logs per page with will_paginate
   self.per_page = 25
 
