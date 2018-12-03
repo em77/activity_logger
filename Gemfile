@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.4.4'
+ruby '2.4.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails', '4.2.11'
 
 gem 'bootstrap-sass'
 
@@ -35,7 +35,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-datepicker-rails'
 # Time picker in Bootstrap style
 gem 'bootstrap-timepicker-rails', require: 'bootstrap-timepicker-rails',
-  git: 'https://github.com/tispratik/bootstrap-timepicker-rails.git'
+  git: 'https://github.com/tispratik/bootstrap-timepicker-rails.git',
+  ref: 'eb489926214bc2ffb9f61ac0638d758e7a950826'
 # Pagination
 gem 'will_paginate'
 # will_paginate integration with bootstrap
@@ -55,9 +56,6 @@ gem 'sorcery'
 
 # For authorization
 gem 'pundit'
-
-# Backup database to S3 bucket
-gem 'pgbackups-archive'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
