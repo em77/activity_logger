@@ -114,9 +114,9 @@ class LogsController < ApplicationController
     end
 
     def log_params
-      params.require(:log).permit(:staff_last_name, :member_last_name,
-        :member_first_name, :duration, :end_time, :education_support,
-        :pre_vocational, :transitional_employment,
+      params.require(:log).permit(:staff_last_name, :staff_first_name,
+        :member_last_name, :member_first_name, :duration, :start_time,
+        :education_support, :pre_vocational, :transitional_employment,
         :intensive_supported_employment, :ongoing_supported_employment,
         :psychosocial_rehabilitation, :habilitation, :family_support,
         :face_to_face, :activity_log, :follow_up, :date, :nbs)

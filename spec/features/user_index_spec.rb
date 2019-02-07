@@ -7,5 +7,7 @@ feature "User index page", :sorcery do
     signin(user.email, "password")
     visit users_path
     expect(page).to have_content user.email
+    expect(page).to have_content user.first_name
+    expect(page).to have_content user.last_name
   end
 end

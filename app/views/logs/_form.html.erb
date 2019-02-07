@@ -14,6 +14,9 @@
     </div>
   <% end %>
 
+  <%= f.text_field :staff_first_name, label: "First Name (Staff)",
+    value: current_user.first_name, required: true %>
+
   <%= f.text_field :staff_last_name, label: "Last Name (Staff)",
     value: current_user.last_name, required: true %>
 
@@ -28,7 +31,7 @@
 
   <%= f.number_field :duration, label: "Duration (minutes)", required: true %>
 
-  <%= f.time_picker :end_time, label: "End Time", widget: {minute_step: 1,
+  <%= f.time_picker :start_time, label: "Start Time", widget: {minute_step: 1,
     default_time: "current", show_meridian: true, show_seconds: false},
     id: "timepicker", required: true %>
 

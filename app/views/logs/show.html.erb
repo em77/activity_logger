@@ -70,10 +70,14 @@
 
       <tr class="table_row">
         <td>
-          <strong>End Time</strong>
+          <strong>Start Time</strong>
         </td>
         <td>
-          <%= log.end_time %>
+          <%= log.start_time %>
+          <% if log.updated_at < DateTime.new(2019, 2, 7) %>
+            <br>
+            Note that when this log was created, <em>Start Time</em> was <em>End Time</em>
+          <% end %>
         </td>
       </tr>
 

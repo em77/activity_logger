@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115224752) do
+ActiveRecord::Schema.define(version: 20190207040909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171115224752) do
     t.string   "member_first_name"
     t.string   "member_last_name"
     t.integer  "duration"
-    t.string   "end_time"
+    t.string   "start_time"
     t.integer  "education_support"
     t.integer  "pre_vocational"
     t.integer  "transitional_employment"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20171115224752) do
     t.integer  "status",                         default: 0
     t.integer  "nbs",                            default: 0
     t.date     "date"
+    t.string   "staff_first_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20171115224752) do
     t.datetime "reset_password_email_sent_at"
     t.integer  "role"
     t.string   "last_name"
+    t.string   "first_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
