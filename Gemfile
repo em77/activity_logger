@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.4.9'
+ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.11.1'
+gem 'rails', '5.2.4.4'
 
 gem 'bootstrap-sass'
 
@@ -19,7 +19,7 @@ gem 'sass-rails', '~> 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -29,14 +29,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
-# Date picker in Bootstrap style
-gem 'bootstrap-datepicker-rails'
-# Time picker in Bootstrap style
-gem 'bootstrap-timepicker-rails', require: 'bootstrap-timepicker-rails',
-  git: 'https://github.com/tispratik/bootstrap-timepicker-rails.git',
-  ref: 'eb489926214bc2ffb9f61ac0638d758e7a950826'
+# Date and time picker
+gem 'flatpickr'
 # Pagination
 gem 'will_paginate'
 # will_paginate integration with bootstrap
@@ -49,7 +43,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Puma as the app server
 gem 'puma'
-gem 'rack-timeout'
 
 # For authentication
 gem 'sorcery'
@@ -84,5 +77,5 @@ group :development do
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem 'rack-timeout'
 end

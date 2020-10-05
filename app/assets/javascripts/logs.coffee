@@ -3,5 +3,20 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "turbolinks:load", ->
-  $('.datepicker').datepicker format: 'mm-dd-yyyy'
-  return
+  flatpickr '[data-behavior=\'flatpickr-date\']',
+    allowInput: true
+    altInput: true
+    altFormat: 'F j, Y'
+    dateFormat: 'Y-m-d'
+
+  flatpickr '[data-behavior=\'flatpickr-time\']',
+    allowInput: true
+    enableTime: true
+    noCalendar: true
+    dateFormat: "h:i K"
+
+  $('[data-behavior=\'flatpickr-date\']').next().focus ->
+    $(this).on 'click.a keyup.a', (e) ->
+      $(this).off('click.a keyup.a').select()
+      return
+    return

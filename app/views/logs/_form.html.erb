@@ -26,14 +26,12 @@
   <%= f.text_field :member_last_name, label: "Last Name (Member)",
     required: true %>
 
-  <%= f.text_field :date, class: "datepicker", value: date_field_value,
-    required: true %>
+  <%= f.text_field :date, value: log.date || Date.today.strftime("%Y-%m-%d"), required: true, data: { behavior: "flatpickr-date" } %>
 
   <%= f.number_field :duration, label: "Duration (minutes)", required: true %>
 
-  <%= f.time_picker :start_time, label: "Start Time", widget: {minute_step: 1,
-    default_time: "current", show_meridian: true, show_seconds: false},
-    id: "timepicker", required: true %>
+  <%= f.text_field :start_time, label: "Start Time", required: true,
+    data: { behavior: "flatpickr-time" } %>
 
   <%= f.text_area :activity_log, label: "Activity Log", required: true %>
 

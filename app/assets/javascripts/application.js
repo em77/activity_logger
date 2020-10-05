@@ -15,6 +15,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap_form_extensions
-//= require bootstrap-datepicker
-//= require bootstrap-timepicker
+//= require flatpickr
 //= require_tree .

@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   enum role: [:user, :admin]
   after_initialize :set_default_role, if: :new_record?
   authenticates_with_sorcery!

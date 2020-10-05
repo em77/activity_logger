@@ -50,7 +50,7 @@
         <ul class="dropdown-menu">
           <li>
             <%= link_to url_for(params.merge({ order: :member_last_name,
-              order_direction: "asc", status_sort: params[:status_sort] })),
+              order_direction: "asc", status_sort: params[:status_sort] }).permit(:order, :order_direction, :status_sort)),
               method: :get do %>
                 Last Name (Member) <span class="glyphicon glyphicon-triangle-top"
                   aria-hidden="true"></span>
@@ -59,7 +59,7 @@
           
           <li>
             <%= link_to url_for(params.merge({ order: :member_last_name,
-              order_direction: "desc", status_sort: params[:status_sort] })),
+              order_direction: "desc", status_sort: params[:status_sort] }).permit(:order, :order_direction, :status_sort)),
               method: :get do %>
                 Last Name (Member) <span class="glyphicon glyphicon-triangle-bottom"
                   aria-hidden="true"></span>
@@ -68,7 +68,7 @@
 
           <li>
             <%= link_to url_for(params.merge({ order: :staff_last_name,
-              order_direction: "asc", status_sort: params[:status_sort] })),
+              order_direction: "asc", status_sort: params[:status_sort] }).permit(:order, :order_direction, :status_sort)),
               method: :get do %>
                 Last Name (Staff) <span class="glyphicon glyphicon-triangle-top"
                   aria-hidden="true"></span>
@@ -77,7 +77,7 @@
 
           <li>
             <%= link_to url_for(params.merge({ order: :staff_last_name,
-              order_direction: "desc", status_sort: params[:status_sort] })),
+              order_direction: "desc", status_sort: params[:status_sort] }).permit(:order, :order_direction, :status_sort)),
               method: :get do %>
                 Last Name (Staff) <span class="glyphicon glyphicon-triangle-bottom"
                   aria-hidden="true"></span>
@@ -86,7 +86,7 @@
 
           <li>
             <%= link_to url_for(params.merge({ order: :created_at,
-              order_direction: "asc", status_sort: params[:status_sort] })),
+              order_direction: "asc", status_sort: params[:status_sort] }).permit(:order, :order_direction, :status_sort)),
               method: :get do %>
                 Submitted <span class="glyphicon glyphicon-triangle-top"
                   aria-hidden="true"></span>
@@ -95,7 +95,7 @@
 
           <li>
             <%= link_to url_for(params.merge({ order: :created_at,
-              order_direction: "desc", status_sort: params[:status_sort] })),
+              order_direction: "desc", status_sort: params[:status_sort] }).permit(:order, :order_direction, :status_sort)),
               method: :get do %>
                 Submitted <span class="glyphicon glyphicon-triangle-bottom"
                   aria-hidden="true"></span>
@@ -104,7 +104,7 @@
 
           <li>
             <%= link_to url_for(params.merge({ order: :date,
-              order_direction: "asc", status_sort: params[:status_sort] })),
+              order_direction: "asc", status_sort: params[:status_sort] }).permit(:order, :order_direction, :status_sort)),
               method: :get do %>
                 Date of Service <span class="glyphicon glyphicon-triangle-top"
                   aria-hidden="true"></span>
@@ -113,7 +113,7 @@
 
           <li>
             <%= link_to url_for(params.merge({ order: :date,
-              order_direction: "desc", status_sort: params[:status_sort] })),
+              order_direction: "desc", status_sort: params[:status_sort] }).permit(:order, :order_direction, :status_sort)),
               method: :get do %>
                 Date of Service <span class="glyphicon glyphicon-triangle-bottom"
                   aria-hidden="true"></span>
@@ -131,7 +131,7 @@
           <li>
             <%= link_to url_for(params.merge({ order: params[:order],
               order_direction: params[:order_direction],
-              status_sort: :all })), method: :get do %>
+              status_sort: :all }).permit(:order, :order_direction, :status_sort)), method: :get do %>
                 All
             <% end %>
           </li>
@@ -139,7 +139,7 @@
           <li>
             <%= link_to url_for(params.merge({ order: params[:order],
               order_direction: params[:order_direction],
-              status_sort: :processed })), method: :get do %>
+              status_sort: :processed }).permit(:order, :order_direction, :status_sort)), method: :get do %>
                 Processed
             <% end %>
           </li>
@@ -147,7 +147,7 @@
           <li>
             <%= link_to url_for(params.merge({ order: params[:order],
               order_direction: params[:order_direction],
-              status_sort: :not_processed })), method: :get do %>
+              status_sort: :not_processed }).permit(:order, :order_direction, :status_sort)), method: :get do %>
                 Not Processed
             <% end %>
           </li>

@@ -4,8 +4,8 @@ class LogsController < ApplicationController
   before_action :set_referer, only: [:destroy, :edit, :new]
   after_action :verify_authorized
 
-  attr_accessor :log, :logs, :date_field_value, :css_id
-  helper_method :log, :logs, :date_field_value, :css_id
+  attr_accessor :log, :logs, :css_id
+  helper_method :log, :logs, :css_id
 
   def index
     @logs = search_handler
@@ -49,13 +49,12 @@ class LogsController < ApplicationController
 
   def new
     @log = Log.new
-    @date_field_value = Time.zone.now.strftime("%m-%d-%Y")
     authorize @log
   end
 
   def create
     @log = Log.new(log_params)
-    @log.date = Date.strptime(log_params[:date], '%m-%d-%Y')
+    @log.date = Date.strptime(log_params[:date], '%Y-%m-%d')
     authorize @log
 
     if @log.valid?
@@ -69,7 +68,6 @@ class LogsController < ApplicationController
 
   def edit
     authorize @log
-    @date_field_value = @log.date.strftime("%m-%d-%Y")
   end
 
   def update

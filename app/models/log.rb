@@ -1,7 +1,7 @@
-class Log < ActiveRecord::Base
+class Log < ApplicationRecord
   enum status: [:not_processed, :processed]
   include OrderQuery
-  include PgSearch
+  include PgSearch::Model
   order_query :order_home,
     [:created_at, :desc]
 
