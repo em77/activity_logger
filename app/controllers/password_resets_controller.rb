@@ -1,5 +1,5 @@
 class PasswordResetsController < ApplicationController
-  skip_before_filter :require_login
+  skip_before_action :require_login
 
   attr_accessor :token, :user
   helper_method :token, :user
