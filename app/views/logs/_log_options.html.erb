@@ -24,18 +24,18 @@
           </li>
 
           <li>
-            <%= link_to destroy_logs_path(older_than: 26),
-              data: { :confirm => "Delete all logs older than 6 months?" },
+            <%= link_to destroy_logs_path(older_than: 13),
+              data: { :confirm => "Delete all logs older than 3 months?" },
               method: :get do %>
-                Older Than 6 Months
+                Older Than 3 Months
             <% end %>
           </li>
 
           <li>
-            <%= link_to destroy_logs_path(older_than: 52),
-              data: { :confirm => "Delete all logs older than 1 year?" },
+            <%= link_to destroy_logs_path(older_than: 26),
+              data: { :confirm => "Delete all logs older than 6 months?" },
               method: :get do %>
-                Older Than 1 Year
+                Older Than 6 Months
             <% end %>
           </li>
         </ul>
